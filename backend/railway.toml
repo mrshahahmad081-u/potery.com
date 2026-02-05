@@ -1,0 +1,15 @@
+name = "potery-backend"
+runtime = "nodejs"
+
+[build]
+  builder = "nixpacks"
+
+[env]
+  NODE_ENV = "production"
+  PORT = "5000"
+
+[[services]]
+  name = "potery-backend"
+  buildCommand = "npm install"
+  startCommand = "npm start"
+  port = 5000

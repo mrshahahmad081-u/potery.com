@@ -1,0 +1,417 @@
+/* Base Styles */
+:root {
+    --primary-glow: #8a2be2;
+    --secondary-glow: #00ffff;
+    --tertiary-glow: #ff00ff;
+    --dark-bg: #0a0a1a;
+    --card-bg: rgba(20, 20, 40, 0.8);
+    --text-primary: #ffffff;
+    --text-secondary: #b3b3ff;
+    --magic-shadow: 0 0 20px var(--primary-glow);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background: var(--dark-bg);
+    color: var(--text-primary);
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* Orb Background */
+.orb-container {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(60px);
+    opacity: 0.3;
+    animation: float 15s infinite ease-in-out;
+}
+
+.orb-1 {
+    width: 300px;
+    height: 300px;
+    background: var(--primary-glow);
+    top: 20%;
+    left: 10%;
+    animation-delay: 0s;
+}
+
+.orb-2 {
+    width: 400px;
+    height: 400px;
+    background: var(--secondary-glow);
+    bottom: 20%;
+    right: 10%;
+    animation-delay: 5s;
+}
+
+.orb-3 {
+    width: 250px;
+    height: 250px;
+    background: var(--tertiary-glow);
+    top: 60%;
+    left: 70%;
+    animation-delay: 10s;
+}
+
+/* Auth Corner */
+.auth-corner {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+/* Magic Button Styles */
+.magic-btn {
+    position: relative;
+    padding: 15px 30px;
+    background: linear-gradient(135deg, rgba(138, 43, 226, 0.2), rgba(0, 255, 255, 0.2));
+    border: 2px solid rgba(138, 43, 226, 0.3);
+    color: white;
+    font-family: 'Cinzel', serif;
+    font-size: 1.1rem;
+    border-radius: 50px;
+    cursor: pointer;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 10px;
+}
+
+.magic-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--magic-shadow);
+    border-color: var(--primary-glow);
+}
+
+.glow-btn {
+    animation: pulse-glow 2s infinite;
+}
+
+.btn-glow {
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, 
+        transparent, 
+        rgba(255, 255, 255, 0.2), 
+        transparent);
+    transition: 0.5s;
+}
+
+.magic-btn:hover .btn-glow {
+    left: 100%;
+}
+
+.btn-ripple {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: scale(0);
+    animation: ripple 0.6s linear;
+}
+
+/* Logo Container */
+.logo-container {
+    width: 400px;
+    height: 400px;
+    margin: 0 auto 50px;
+    position: relative;
+}
+
+#logoCanvas {
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+}
+
+.logo-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 120%;
+    height: 120%;
+    background: radial-gradient(circle, 
+        var(--primary-glow) 0%,
+        transparent 70%);
+    filter: blur(40px);
+    opacity: 0.5;
+    z-index: -1;
+    animation: glow-pulse 4s infinite alternate;
+}
+
+/* Text Styles */
+.magic-title {
+    font-family: 'Cinzel', serif;
+    font-size: 4rem;
+    text-align: center;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.text-glow {
+    display: block;
+    text-shadow: 0 0 10px var(--secondary-glow);
+    animation: text-glow 3s infinite alternate;
+}
+
+.text-reveal {
+    display: block;
+    background: linear-gradient(90deg, 
+        var(--primary-glow), 
+        var(--secondary-glow), 
+        var(--tertiary-glow));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: gradient-shift 5s infinite;
+}
+
+.tagline {
+    text-align: center;
+    font-size: 1.5rem;
+    color: var(--text-secondary);
+    margin-bottom: 50px;
+    opacity: 0.8;
+}
+
+/* Navigation */
+.nav-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.nav-btn {
+    min-width: 200px;
+    justify-content: center;
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(10, 10, 26, 0.95);
+    z-index: 2000;
+    backdrop-filter: blur(5px);
+}
+
+.modal-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: var(--card-bg);
+    padding: 40px;
+    border-radius: 20px;
+    border: 1px solid rgba(138, 43, 226, 0.3);
+    box-shadow: var(--magic-shadow);
+    min-width: 400px;
+    max-width: 90%;
+}
+
+.upload-modal {
+    min-width: 500px;
+}
+
+.close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 28px;
+    cursor: pointer;
+    color: var(--text-secondary);
+    transition: color 0.3s;
+}
+
+.close:hover {
+    color: var(--primary-glow);
+}
+
+/* Input Styles */
+.input-group {
+    position: relative;
+    margin: 25px 0;
+}
+
+.magic-input {
+    width: 100%;
+    padding: 15px;
+    background: transparent;
+    border: 2px solid rgba(138, 43, 226, 0.3);
+    border-radius: 10px;
+    color: white;
+    font-size: 1rem;
+    transition: all 0.3s;
+}
+
+.magic-input:focus {
+    outline: none;
+    border-color: var(--primary-glow);
+    box-shadow: 0 0 10px var(--primary-glow);
+}
+
+.floating-label {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    color: var(--text-secondary);
+    pointer-events: none;
+    transition: 0.3s;
+}
+
+.magic-input:focus + .floating-label,
+.magic-input:not(:placeholder-shown) + .floating-label {
+    top: -10px;
+    left: 10px;
+    font-size: 0.8rem;
+    color: var(--primary-glow);
+    background: var(--dark-bg);
+    padding: 0 5px;
+}
+
+.input-glow {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, 
+        var(--primary-glow), 
+        var(--secondary-glow));
+    transition: width 0.3s;
+}
+
+.magic-input:focus ~ .input-glow {
+    width: 100%;
+}
+
+/* Upload Styles */
+.upload-tabs {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+.tab-btn {
+    flex: 1;
+    padding: 15px;
+    background: transparent;
+    border: 1px solid rgba(138, 43, 226, 0.3);
+    color: var(--text-secondary);
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.tab-btn.active {
+    background: linear-gradient(135deg, 
+        rgba(138, 43, 226, 0.2), 
+        rgba(0, 255, 255, 0.2));
+    border-color: var(--primary-glow);
+    color: white;
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+.file-input {
+    display: none;
+}
+
+.file-label {
+    display: block;
+    padding: 30px;
+    border: 2px dashed rgba(138, 43, 226, 0.3);
+    border-radius: 10px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s;
+    color: var(--text-secondary);
+}
+
+.file-label:hover {
+    border-color: var(--primary-glow);
+    background: rgba(138, 43, 226, 0.1);
+}
+
+.preview {
+    margin-top: 20px;
+    min-height: 100px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+textarea {
+    width: 100%;
+    padding: 15px;
+    background: rgba(20, 20, 40, 0.6);
+    border: 1px solid rgba(138, 43, 226, 0.3);
+    border-radius: 10px;
+    color: white;
+    font-size: 1rem;
+    resize: vertical;
+    margin-bottom: 15px;
+}
+
+/* Hidden Elements */
+.hidden {
+    display: none !important;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .magic-title {
+        font-size: 2.5rem;
+    }
+    
+    .logo-container {
+        width: 300px;
+        height: 300px;
+    }
+    
+    .nav-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .modal-content {
+        min-width: 90%;
+        padding: 20px;
+    }
+    
+    .upload-modal {
+        min-width: 90%;
+    }
+}

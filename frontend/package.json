@@ -1,0 +1,21 @@
+{
+  "name": "magical-website-frontend",
+  "version": "1.0.0",
+  "description": "Frontend for magical website with 3D effects and animations",
+  "main": "index.html",
+  "scripts": {
+    "start": "python -m http.server 3000 2>/dev/null || python3 -m http.server 3000",
+    "serve": "npx http-server -p 3000 -c-1",
+    "build": "echo \"Frontend is static, no build needed\"",
+    "preview": "open http://localhost:3000 || start http://localhost:3000"
+  },
+  "keywords": ["frontend", "3d", "animations", "gsap", "threejs"],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "http-server": "^14.1.1"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}

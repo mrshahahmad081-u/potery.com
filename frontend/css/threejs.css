@@ -1,0 +1,10 @@
+/* Three.js Canvas Container Styles */
+#logoCanvas {
+    display: block;
+}
+
+/* Canvas responsive sizing */
+canvas {
+    max-width: 100%;
+    height: auto;
+}
